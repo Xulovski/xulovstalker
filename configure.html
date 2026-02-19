@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Stalker IPTV Config</title>
+</head>
+<body>
+  <h2>Adicionar Lista Stalker</h2>
+
+  <textarea id="config" rows="15" cols="80">
+{
+  "lists": [
+    {
+      "name": "Minha Lista",
+      "portalUrl": "http://example.com/stalker_portal",
+      "mac": "00:1A:79:00:00:00"
+    }
+  ]
+}
+  </textarea>
+
+  <br><br>
+  <button onclick="install()">Instalar no Stremio</button>
+
+  <script>
+    function install() {
+      const cfg = encodeURIComponent(document.getElementById('config').value);
+      const url = `stremio://addon-install?url=${location.origin}/manifest.json?config=${cfg}`;
+      window.location.href = url;
+    }
+  </script>
+</body>
+</html>
