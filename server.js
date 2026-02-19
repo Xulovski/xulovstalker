@@ -17,21 +17,27 @@ app.get("/configure", (req, res) => {
 
 /* manifest SIMPLES (sem loop no Stremio) */
 app.get("/manifest.json", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Content-Type", "application/json");
+
   res.json({
     id: "org.stremio.stalker",
-    version: "1.0.3",
+    version: "1.0.5",
     name: "Stalker IPTV",
-    description: "Addon IPTV Stalker (MAG / STB)",
+    description: "Addon IPTV Stalker (MAG / STB Emu)",
     resources: ["catalog", "stream"],
     types: ["tv", "movie", "series"],
     catalogs: [
       { type: "tv", id: "stalker_tv", name: "Stalker TV" },
       { type: "movie", id: "stalker_movies", name: "Stalker Filmes" },
       { type: "series", id: "stalker_series", name: "Stalker Séries" }
-    ]
+    ],
+    behaviorHints: {
+      configurable: false,
+      configurationRequired: false
+    }
   });
 });
-
 /* rotas vazias (evita crash do Stremio) */
 app.get("/catalog/:type/:id", (req, res) => {
   res.json({ metas: [] });
