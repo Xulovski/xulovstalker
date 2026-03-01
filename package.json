@@ -1,19 +1,19 @@
 {
-  "name": "stremio-stalker-addon",
-  "version": "2.0.0",
-  "description": "Stremio IPTV Stalker Addon (Live, VOD, Series)",
-  "type": "module",
-  "main": "server.js",
+  "name": "xulovstalker",
+  "version": "1.0.0",
+  "description": "Addon Stremio IPTV Stalker",
+  "main": "server.cjs",
   "scripts": {
-    "start": "node server.js"
-  },
-  "engines": {
-    "node": ">=20"
+    "start": "node server.cjs"
   },
   "dependencies": {
-    "express": "^4.19.2",
-    "node-fetch": "^2.7.0",
-    "stremio-addon-sdk": "^1.6.10",
-    "uuid": "^9.0.1"
+    "axios": "^1.6.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "dotenv": "^16.0.0",
+    "fs-extra": "^11.1.0",
+    "node-fetch": "^2.6.7",
+    "uuid": "^9.0.0"
   }
 }
+
